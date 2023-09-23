@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculator</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+
+      .calculator {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .calculator-button {
+        width: 100%;
+        height: 50px;
+        border: none;
+        background-color: #ccc;
+        color: #000;
+        font-size: 20px;
+        cursor: pointer;
+      }
+
+      .calculator-button:hover {
+        background-color: #bbb;
+      }
+
+      .calculator-3d {
+        perspective: 1000px;
+      }
+
+      .calculator-button-3d {
+        position: relative;
+        transform: translateZ(30px);
+        box-shadow: 0 0 10px 5px #ccc;
+      }
+
+      .calculator-button-3d:hover {
+        transform: translateZ(0px);
+      }
+
+      .calculator-theme-1 {
+        background-color: #fff;
+      }
+
+      .calculator-theme-2 {
+        background-color: #000;
+        color: #fff;
+      }
+
+      .calculator-theme-3 {
+        background-color: #bbb;
+        color: #fff;
+      }
+    </style>
+    <script>
+      var calculator = document.querySelector(".calculator");
+      var buttons = calculator.querySelectorAll(".calculator-button");
+
+      var currentTheme = "theme-1";
+
+      function changeTheme(theme) {
+        calculator.classList.remove(currentTheme);
+        calculator.classList.add(theme);
+        currentTheme = theme;
+      }
+
+      buttons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          changeTheme(button.getAttribute("data-theme"));
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="calculator calculator-3d">
+      <button
+        class="calculator-button calculator-button-3d"
+        data-theme="theme-1"
+      >
+        1
+      </button>
+      <button
+        class="calculator-button calculator-button-3d"
+        data-theme="theme-2"
+      >
+        2
+      </button>
+      <button
+        class="calculator-button calculator-button-3d"
+        data-theme="theme-3"
+      >
+        3
+      </button>
+      <button
+        class="calculator-button calculator-button-3d"
+        data-theme="theme-1"
+      >
+        +
+      </button>
+      <button
+        class="calculator-button calculator-button-3d"
+        data-theme="theme-2"
+      >
+        4
+      </button>
+      <button
+        class="calculator-button calculator-button-3d"
+        data-theme="theme-3"
+      >
+        5
+      </button>
+      <button
+        class="calculator-button calculator-button-3d"
+        data-theme="theme-1"
+      >
+        6
+      </button>
+      <button
+        class="calculator-button calculator-button-3d"
+        data-theme="theme-2"
+      >
+        -
+      </button>
+      <button
+        class="calculator-button calculator-button-3d"
+        data-theme="theme-3"
+      >
+        7
+      </button>
+      <button
+        class="calculator-button calculator-button-3d"
+        data-theme="theme-1"
+      >
+        8
+      </button>
+      <button
+        class="calculator-button calculator-button-3d"
+        data-theme="theme-2"
+      >
+        9
+      </button>
+      <button
+        class="calculator-button calculator-button-3d"
+        data-theme="theme-3"
+      >
+        0
+      </button>
+    </div>
+  </body>
+</html>
